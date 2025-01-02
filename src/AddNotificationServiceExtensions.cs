@@ -14,7 +14,7 @@ public static class AddNotificationServiceExtensions
     public static Builder AddNotificationService<DependencyInjected, Builder>(this Builder builder, Func<DependencyInjected, Directory> rootProvider) where Builder : IHostApplicationBuilder
     {
         builder.Services.AddTransient<IRootProvider, RootProvider<DependencyInjected>>((IServiceProvider services) => ActivatorUtilities.CreateInstance<RootProvider<DependencyInjected>>(services, rootProvider));
-        builder.Services.AddTransient<NotificationService>();
+        builder.Services.AddTransient<Notifier>();
         return builder;
     }
     public static HostApplicationBuilder AddNotificationService<DependencyInjected>(this HostApplicationBuilder builder, Func<DependencyInjected, Directory> rootProvider)
