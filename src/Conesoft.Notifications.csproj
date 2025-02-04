@@ -29,8 +29,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Conesoft.Files" Version="3.0.7" />
-		<PackageReference Include="FolkerKinzel.DataUrls" Version="2.0.0" />
+		<PackageReference Include="Conesoft.Files" Version="3.1.1" />
+		<PackageReference Include="FolkerKinzel.DataUrls" Version="2.0.1" />
 	</ItemGroup>
 
 </Project>
