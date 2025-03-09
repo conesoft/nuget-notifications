@@ -13,7 +13,7 @@ public class Notifier(IRootProvider access)
         DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
     };
 
-    public async Task Notify(string? title, string message, string? url = null, File? image = null)
+    public async Task Notify(string? title, string message, string? url = null, File? image = null, string? to = null)
     {
         var notifications = access.GetRoot() / "plugins" / "notifications";
 
@@ -38,7 +38,8 @@ public class Notifier(IRootProvider access)
             title,
             message,
             url,
-            image = imageDataUrl
+            image = imageDataUrl,
+            to
         }, options);
     }
 }
