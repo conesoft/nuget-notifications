@@ -7,7 +7,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<Version>1.0.9</Version>
+		<Version>1.0.10</Version>
 		<Authors>davepermen</Authors>
 		<Company>Conesoft</Company>
 		<PackageIcon>Conesoft.forNuget.x256.png</PackageIcon>
@@ -29,8 +29,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Conesoft.Files" Version="4.1.4" />
-		<PackageReference Include="FolkerKinzel.DataUrls" Version="2.0.2" />
+		<PackageReference Include="Conesoft.Files" Version="4.1.5" />
+		<PackageReference Include="FolkerKinzel.DataUrls" Version="2.0.3" />
 	</ItemGroup>
 
 </Project>
