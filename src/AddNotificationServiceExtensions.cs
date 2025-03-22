@@ -1,5 +1,4 @@
-﻿using Conesoft.Files;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -11,18 +10,18 @@ namespace Conesoft.Notifications;
 [EditorBrowsable(EditorBrowsableState.Never)]
 public static class AddNotificationServiceExtensions
 {
-    public static Builder AddNotificationService<DependencyInjected, Builder>(this Builder builder, Func<DependencyInjected, Directory> rootProvider) where Builder : IHostApplicationBuilder
+    public static Builder AddNotificationService<DependencyInjected, Builder>(this Builder builder, Func<DependencyInjected, Information> informationProvider) where Builder : IHostApplicationBuilder
     {
-        builder.Services.AddTransient<IRootProvider, RootProvider<DependencyInjected>>((IServiceProvider services) => ActivatorUtilities.CreateInstance<RootProvider<DependencyInjected>>(services, rootProvider));
+        builder.Services.AddTransient<IInformationProvider, InformationProvider<DependencyInjected>>((IServiceProvider services) => ActivatorUtilities.CreateInstance<InformationProvider<DependencyInjected>>(services, informationProvider));
         builder.Services.AddTransient<Notifier>();
         return builder;
     }
-    public static HostApplicationBuilder AddNotificationService<DependencyInjected>(this HostApplicationBuilder builder, Func<DependencyInjected, Directory> rootProvider)
+    public static HostApplicationBuilder AddNotificationService<DependencyInjected>(this HostApplicationBuilder builder, Func<DependencyInjected, Information> informationProvider)
     {
-        return builder.AddNotificationService<DependencyInjected, HostApplicationBuilder>(rootProvider);
+        return builder.AddNotificationService<DependencyInjected, HostApplicationBuilder>(informationProvider);
     }
-    public static WebApplicationBuilder AddNotificationService<DependencyInjected>(this WebApplicationBuilder builder, Func<DependencyInjected, Directory> rootProvider)
+    public static WebApplicationBuilder AddNotificationService<DependencyInjected>(this WebApplicationBuilder builder, Func<DependencyInjected, Information> informationProvider)
     {
-        return builder.AddNotificationService<DependencyInjected, WebApplicationBuilder>(rootProvider);
+        return builder.AddNotificationService<DependencyInjected, WebApplicationBuilder>(informationProvider);
     }
 }
